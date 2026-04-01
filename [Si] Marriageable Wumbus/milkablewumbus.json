@@ -1,0 +1,27 @@
+{
+
+	"Changes": [
+
+	// Thanks to chocolatte12 for this bite of insanity
+
+	// Make Wumbus milkable by interacting while holding a milk pail via BETAS
+	{
+		"Action": "EditData",
+		"Target": "Data/TriggerActions",
+		"Entries": {
+			"{{ModId}}_MilkableWumbus": {
+				"Id": "{{ModId}}_MilkableWumbus",
+				"MarkActionApplied": false,
+				"Trigger": "Spiderbuttons.BETAS_DialogueOpened",
+				"Condition": "ITEM_ID Target {{ModId}}_Wumbus, Spiderbuttons.BETAS_PLAYER_HELD_ITEM current (T)MilkPail",
+				"Actions": [
+					"Spiderbuttons.BETAS_PlaySound Milking",
+					"AddItem 184 5"
+				],
+			},
+		},
+	}, 
+
+	],
+
+}

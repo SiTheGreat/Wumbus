@@ -4,8 +4,8 @@
 
 	"Changes": [
 
-		// Aviroen's NPC template used for some of the marriage stuff - thanks Avi!
-		// https://stardewmodding.wiki.gg/wiki/Npc_template
+	// Aviroen's NPC template used for some of the marriage stuff - thanks Avi!
+	// https://stardewmodding.wiki.gg/wiki/Npc_template
 
 	// NPC Dispo ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -241,6 +241,16 @@
 				"DislikedTags": [],
 			}
 		}
+	},
+
+	// Milkable Wumbus ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "Include",
+		"FromFile": "milkablewumbus.json",
+		"When": {
+			"HasMod |contains=Spiderbuttons.BETAS": true,
+		},
 	},
 
 	// Marriage Maps ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -2,7 +2,7 @@
 	"Name": "[Si] Marriageable Wumbus",
 	"Author": "SiTheGreat",
 	"Description": "Praise Wumbus.",
-	"Version": "1.0.0",
+	"Version": "1.1.0",
 	"UniqueID": "Si.Wumbus",
 	"UpdateKeys": [ "Nexus:44509" ],
 	"ContentPackFor": {
