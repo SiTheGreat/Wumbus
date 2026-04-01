@@ -1,0 +1,366 @@
+{
+
+	"Format": "2.0.0",
+
+	"Changes": [
+
+		// Aviroen's NPC template used for some of the marriage stuff - thanks Avi!
+		// https://stardewmodding.wiki.gg/wiki/Npc_template
+
+	// NPC Dispo ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Characters",
+		"Entries": {
+			"{{ModId}}_Wumbus": {
+				// Char
+				"DisplayName": "Wumbus",
+				"Gender": "Female",
+				"Age": "Adult",
+				"BirthSeason": "Spring",
+				"BirthDay": 1,
+				// Attitude
+				"Manner": "Neutral",
+				"SocialAnxiety": "Neutral",
+				"Optimism": "Neutral",
+				"CanBeRomanced": true,
+				// Exclusions
+				"PerfectionScore": false,
+				"IntroductionsQuest": false,
+				"ItemDeliveryQuests": true,
+				"CanVisitIsland": true,
+				"WinterStarParticipant": false,
+				"CanCommentOnPurchasedShopItems": false,
+				"CanGreetNearbyCharacters": false,
+				"Breather": true,
+				"SocialTab": "HiddenUntilMet",
+				"Calendar": "HiddenUntilMet",
+				"EndSlideShow": "TrailingGroup",
+				// Marriage Stuff
+				"SpouseAdopts": true,
+				"KissSpriteIndex": "16",
+				"SpouseRoom": {
+					"MapAsset": "{{ModId}}_room",
+					"MapSourceRect": {
+						"X": 0,
+						"Y": 0,
+						"Width": 6,
+						"Height": 9,
+					}
+				},
+				"SpousePatio": {
+					"MapAsset": "{{ModId}}_patio",
+					"MapSourceRect": {
+						"X": 0,
+						"Y": 0,
+						"Width": 4,
+						"Height": 4
+					},
+				},
+				// Home
+				"HomeRegion": "Town",
+				"Home": [
+					{
+						"Id": "Default",
+						"Location": "BathHouse_Entry",
+						"Tile": { "X": 4, "Y": 4 },
+						"Direction": "Down"
+					}
+				]
+			}
+		}
+	},
+
+	// Gifts ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "EditData",
+		"Target": "Data/NPCGiftTastes",
+		"Entries": {
+			"{{ModId}}_Wumbus": "Wumbus./260 215 482 264 206 126 127/Wumbus.//Wumbus.//Wumbus.//Wumbus.//", // hot pepper, pepper poppers, pepper seeds, pizza, strange doll green, strange doll yellow
+		},
+	},
+
+	// Images ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "Load",
+		"Target": "Characters/{{ModId}}_Wumbus",
+		"FromFile": "sprite.png",
+	},
+
+	{
+		"Action": "Load",
+		"Target": "Portraits/{{ModId}}_Wumbus",
+		"FromFile": "port.png",
+	},
+
+	// Blank Loads ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "Load",
+		"Target": "Characters/Dialogue/{{ModId}}_Wumbus, Characters/schedules/{{ModId}}_Wumbus, Characters/Dialogue/MarriageDialogue{{ModId}}_Wumbus",
+		"FromFile": "blank.json",
+	},
+
+	// Schedule ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "EditData",
+		"Target": "Characters/schedules/{{ModId}}_Wumbus",
+		"Entries": {
+			"spring": "610 Town 73 9 2/1210 Forest 93 93 2/1650 Mountain 79 23 2/2240 BathHouse_Entry 4 4 2",
+			},
+	},
+
+	// Dialogue ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/{{ModId}}_Wumbus",
+		"Entries": {
+			// Gift Responses
+			"AcceptGift_(O)StardropTea": "Wumbus.",
+			// Regular Dialogue
+			"AcceptBirthdayGift": "Wumbus.",
+			"DumpsterDiveComment": "Wumbus.",
+			"HitBySlingshot": "Wumbus.",
+			"RejectMovieTicket": "Wumbus.",
+			"MovieInvitation": "Wumbus.",
+			"Resort": "Wumbus",
+			"GreenRain":"Wumbus.",
+			"rainy": "Wumbus.",
+			"Mon": "Wumbus.",
+			"Tue": "Wumbus.",
+			"Wed": "Wumbus.",
+			"Thu": "Wumbus.",
+			"Fri": "Wumbus.",
+			"Sat": "Wumbus.",
+			"Sun": "Wumbus.",
+			"FlowerDance_Accept": "Wumbus.",
+			"FlowerDance_Decline": "Wumbus.",
+			"AcceptBouquet": "Wumbus.",
+			"RejectBouquet": "Wumbus.",
+			"RejectMermaidPendant": "Wumbus",
+			"breakup": "Wumbus",
+			"divorced": "Wumbus",
+			"SpouseFarmhouseClutter": "Wumbus",
+			"SpouseGiftJealous": "Wumbus",
+			"Spouse_MonstersInHouse": "Wumbus",
+			"SpouseStardrop": "Wumbus",
+			"WipedMemory": "Wumbus",
+		},
+	},
+
+	// Festivals ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Festivals/spring24",
+		"Entries": {
+			"{{ModId}}_Wumbus": "Wumbus."
+		},
+	},
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Festivals/spring24",
+		"TextOperations": [
+			{
+				"Operation": "Append",
+				"Target": ["Entries", "MainEvent_additionalCharacters"],
+				"Value": "{{ModId}}_Wumbus 15 39 down",
+				"Delimiter": "/"
+			},
+			{
+				"Operation": "Append",
+				"Target": ["Entries", "MainEvent_additionalCharacters_y2"],
+				"Value": "{{ModId}}_Wumbus 15 39 down",
+				"Delimiter": "/"
+			},
+			{
+				"Operation": "Append",
+				"Target": ["Entries", "Set-Up_additionalCharacters"],
+				"Value": "{{ModId}}_Wumbus 15 39 down",
+				"Delimiter": "/"
+			},
+			{
+				"Operation": "Append",
+				"Target": ["Entries", "Set-Up_additionalCharacters_y2"],
+				"Value": "{{ModId}}_Wumbus 15 39 down",
+				"Delimiter": "/"
+			},
+		]
+	},
+
+	// Movies ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+			"Action": "EditData",
+			"Target": "Data/MoviesReactions",
+			"Entries": {
+				"{{ModId}}_Wumbus": {
+					"NPCName": "{{ModId}}_Wumbus",
+					"Reactions": [
+					
+					// Wumbus
+					{
+						"Tag": "*",
+						"ID": "reaction_0",
+						"Response": "love",
+						"Whitelist": [],
+						"SpecialResponses": {
+							"BeforeMovie": {
+								"ResponsePoint": null,
+								"Script": "",
+								"Text": "Wumbus.",
+							},
+							"DuringMovie": null,
+							"AfterMovie": {
+								"ResponsePoint": null,
+								"Script": "",
+								"Text": "Wumbus.",
+							}
+						},
+					},
+
+				]
+			}
+		}
+	},
+
+	{
+		"Action": "EditData",
+		"Target": "Data/ConcessionTastes",
+		"Entries": {
+			"{{ModId}}_Wumbus": {
+				"Name": "{{ModId}}_Wumbus",
+				"LovedTags": ["Salted Peanuts", "Stardrop Sorbet", "Panzanella Salad", "Truffle Popcorn", "Salmon Burger", "Cappuccino Mousse Cake", "Joja Cola", "Popcorn", "JojaCorn", "Kale Smoothie", "Jawbreaker", "Fries"],
+				"LikedTags": [],
+				"DislikedTags": [],
+			}
+		}
+	},
+
+	// Marriage Maps ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "Load",
+		"Target": "Maps/{{ModId}}_room",
+		"FromFile": "room.tmx"
+	},
+	{
+		"Action": "Load",
+		"Target": "Maps/{{ModId}}_patio",
+		"FromFile": "patio.tmx"
+	},
+
+	// Marriage Dialogue ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "EditData",
+		"Target": "data/EngagementDialogue",
+		"Entries": {
+			"{{ModId}}_Wumbus0": "Wumbus.",
+			"{{ModId}}_Wumbus1": "Wumbus."
+		}
+	},
+	{
+		"Action": "EditData",
+		"Target": "Strings/StringsFromCSFiles",
+		"Entries": {
+			"{{ModId}}_Wumbus_Engaged": "Wumbus.$4",
+			"{{ModId}}_Wumbus_AfterWedding": "Wumbus.$4",
+		},
+	},
+	{
+		"Action": "EditData",
+		"Target": "Characters/Dialogue/MarriageDialogue{{ModId}}_Wumbus",
+		"Entries": {
+			"Spring_{{ModId}}_Wumbus": "Wumbus.",
+			"Summer_{{ModId}}_Wumbus": "Wumbus.",
+			"Fall_{{ModId}}_Wumbus": "Wumbus.",
+			"Winter_{{ModId}}_Wumbus": "Wumbus.",
+			"patio_{{ModId}}_Wumbus": "Wumbus.",
+			"Rainy_Day_0": "Wumbus.",
+			"Rainy_Day_1": "Wumbus.",
+			"Rainy_Day_2": "Wumbus.",
+			"Rainy_Day_3": "Wumbus.",
+			"Rainy_Day_4": "Wumbus.",
+			"Rainy_Day_5": "Wumbus.",
+			"Indoor_Day_0": "Wumbus.",
+			"Indoor_Day_1": "Wumbus.",
+			"Indoor_Day_2": "Wumbus.",
+			"Indoor_Day_3": "Wumbus.",
+			"Indoor_Day_4": "Wumbus.",
+			"Indoor_Day_5": "Wumbus.",
+			"Rainy_Night_0": "Wumbus.",
+			"Rainy_Night_1": "Wumbus.",
+			"Rainy_Night_2": "Wumbus.",
+			"Rainy_Night_3": "Wumbus.",
+			"Rainy_Night_4": "Wumbus.",
+			"Rainy_Night_5": "Wumbus.",
+			"Indoor_Night_0": "Wumbus.",
+			"Indoor_Night_1": "Wumbus.",
+			"Indoor_Night_2": "Wumbus.",
+			"Indoor_Night_3": "Wumbus.",
+			"Indoor_Night_4": "Wumbus.",
+			"Indoor_Night_5": "Wumbus.",
+			"funLeave_{{ModId}}_Wumbus": "Wumbus.",
+			"funReturn_{{ModId}}_Wumbus": "Wumbus.",
+			"Outdoor_{{ModId}}_Wumbus": "Wumbus.",
+			"Outdoor_0": "Wumbus.",
+			"Outdoor_1": "Wumbus.",
+			"Outdoor_2": "Wumbus.",
+			"Outdoor_3": "Wumbus.",
+			"Outdoor_4": "Wumbus.",
+			"spouseRoom_{{ModId}}_Wumbus": "Wumbus.",
+			"OneKid_0": "Wumbus.",
+			"OneKid_1": "Wumbus.",
+			"OneKid_2": "Wumbus.",
+			"OneKid_3": "Wumbus.",
+			"OneKid_4": "Wumbus.",
+			"TwoKids_0": "Wumbus.",
+			"TwoKids_1": "Wumbus.",
+			"TwoKids_2": "Wumbus.",
+			"TwoKids_3": "Wumbus.",
+			"TwoKids_4": "Wumbus.",
+			"Good_0": "Wumbus.",
+			"Good_1": "Wumbus.",
+			"Good_2": "Wumbus.",
+			"Good_3": "Wumbus.",
+			"Good_4": "Wumbus.",
+			"Good_5": "Wumbus.",
+			"Good_6": "Wumbus.",
+			"Good_7": "Wumbus.",
+			"Good_8": "Wumbus.",
+			"Good_9": "Wumbus.",
+			"Neutral_0": "Wumbus.",
+			"Neutral_1": "Wumbus.",
+			"Neutral_2": "Wumbus.",
+			"Neutral_3": "Wumbus.",
+			"Neutral_4": "Wumbus.",
+			"Neutral_5": "Wumbus.",
+			"Neutral_6": "Wumbus.",
+			"Neutral_7": "Wumbus.",
+			"Neutral_8": "Wumbus.",
+			"Neutral_9": "Wumbus.",
+			"Bad_0": "Wumbus.",
+			"Bad_1": "Wumbus.",
+			"Bad_2": "Wumbus.",
+			"Bad_3": "Wumbus.",
+			"Bad_4": "Wumbus.",
+			"Bad_5": "Wumbus.",
+			"Bad_6": "Wumbus.",
+			"Bad_7": "Wumbus.",
+			"Bad_8": "Wumbus.",
+			"Bad_9": "Wumbus.",
+		}
+	},
+
+	// End ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	],
+
+}
