@@ -16,11 +16,103 @@
 				"Condition": "ITEM_ID Target {{ModId}}_Wumbus, Spiderbuttons.BETAS_PLAYER_HELD_ITEM current (T)MilkPail",
 				"Actions": [
 					"Spiderbuttons.BETAS_PlaySound Milking",
-					"AddItem 184 5"
+					"AddItem {{ModId}}_greenmilk 1"
 				],
 			},
 		},
-	}, 
+	},
+
+	// Add green milk and green milk cooler for may the fourth
+	// this one is just plain old discord's fault
+	// sorry fairy
+
+	{
+		"Action": "Load",
+		"Target": "Mods/{{ModId}}/greenmilk",
+		"FromFile": "greenmilk.png",
+	},
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Objects",
+		"Entries": {
+			"{{ModId}}_greenmilk": {
+				"Name": "{{ModId}}_greenmilk",
+				"DisplayName": "Green Milk",
+				"Description": "It's salty and nutritious!",
+				"Type": "asdf",
+				"Category": -6,
+				"Price": 150,
+				"Texture": "Mods/{{ModId}}/greenmilk",
+				"SpriteIndex": 1,
+				"Edibility": "50",
+				"IsDrink": true,
+				"ContextTags": [
+					"color_green",
+					"drink_item",
+					"milk_item",
+				],
+			},
+		},
+	},
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Objects",
+		"Entries": {
+			"{{ModId}}_greenmilkcooler": {
+				"Name": "{{ModId}}_greenmilkcooler",
+				"DisplayName": "Green Milk Cooler",
+				"Description": "It's got zippy citrus and tropical characteristics!",
+				"Type": "asdf",
+				"Category": -26,
+				"Price": 300,
+				"Texture": "Mods/{{ModId}}/greenmilk",
+				"SpriteIndex": 0,
+				"Edibility": "30",
+				"IsDrink": true,
+				"Buffs": [
+					{
+						"Id": "Tipsy",
+						"BuffId": "17",
+						"Duration": 0,
+						"IsDebuff": true,
+						"GlowColor": "Green",
+					},
+				],
+				"ContextTags": [
+					"alcohol_item",
+					"drink_item",
+					"color_green",
+					"milk_item",
+				],
+			},
+		},
+	},
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Machines",
+		"TargetField": [ "(BC)12", "OutputRules" ],
+		"Entries": {
+            "{{ModId}}_greencooler": {
+				"Id": "{{ModId}}_greencooler",
+				"Triggers": [
+					{
+						"Trigger": "ItemPlacedInMachine",
+						"RequiredItemId": "(O){{ModId}}_greenmilk",
+						"RequiredCount": 1
+					}
+				],
+				"OutputItem": [
+				{
+					"ItemId": "(O){{ModId}}_greenmilkcooler"
+				}
+				],
+				"MinutesUntilReady": 540
+			}
+        },
+	},
 
 	],
 

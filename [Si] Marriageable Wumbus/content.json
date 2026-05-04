@@ -2,6 +2,16 @@
 
 	"Format": "2.0.0",
 
+	"ConfigSchema":{
+
+		"cantinamusic": {
+			"AllowValues": "true, false",
+			"Default": "true",
+			"Description": "Sets the Saloon's default music to the Star Wars cantina music."
+		},
+
+	},
+
 	"Changes": [
 
 	// Aviroen's NPC template used for some of the marriage stuff - thanks Avi!
@@ -251,6 +261,16 @@
 		"When": {
 			"HasMod |contains=Spiderbuttons.BETAS": true,
 		},
+	},
+
+	// Cantina Music ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	{
+		"Action": "Include",
+		"FromFile": "cantinamusic.json",
+		"When": {
+			"cantinamusic": true,
+		}
 	},
 
 	// Marriage Maps ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,33 @@
+{
+
+	"Changes": [
+
+	// this one is husky's fault
+
+	{
+		"Action": "EditData",
+		"Target": "Data/AudioChanges",
+		"Entries": {
+			"{{ModId}}_cantinamusic": {
+				"ID": "{{ModId}}_cantinamusic",
+				"Category": "Music",
+				"FilePaths": [ "{{AbsoluteFilePath: cantina.ogg}}" ],
+				"StreamedVorbis": true,
+				"Looped": false,
+			}
+		}
+	},
+
+	{
+		"Action": "EditData",
+		"Target": "Data/Locations",
+		"Fields": {
+			"Saloon": {
+				"MusicDefault": "{{ModId}}_cantinamusic"
+			}
+		}
+	}
+
+	],
+
+}
